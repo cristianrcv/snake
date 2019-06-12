@@ -5,9 +5,12 @@
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://github.com/cristianrcv/pycompss-pluto/blob/master/LICENSE)
 
 
-# Snake
+# Snake and Snake Fight
 
-A custom snake game in Python.
+This repository contains a custom implementation of the traditional Snake game.
+
+Furthermore, it contains a multiplayer implementation called Snake Fight for up to 4 players.
+
 
 ---
 
@@ -21,14 +24,21 @@ A custom snake game in Python.
 
 ---
 
+
 ## Dependencies
 
-- None.
+- [Curses][curses-python-module] python module
+- [Random][random-python-module] python module
+- [Datetime][datetime-python-module] python module
+- [Logging][logging-python-module] python module
 
 
 ## Commands
 
-- Launch the `run.sh` script to start the game
+- Regular snake game:
+    - Launch the `run.sh` script to start the game.
+- Snake fight game (up to 4 players)
+    - Launch the `run_fight.sh` script to start the game.
 
 
 ## Contributing
@@ -46,6 +56,11 @@ Cristián Ramón-Cortés Vilarrodona <cristian.ramoncortes(at)bsc.es> ([Personal
 
 Licensed under the [Apache 2.0 License][apache-2]
 
+
+[curses-python-module]: https://docs.python.org/2.7/howto/curses.html
+[random-python-module]: https://docs.python.org/2.7/library/random.html
+[datetime-python-module]: https://docs.python.org/2.7/library/datetime.html
+[logging-python-module]: https://docs.python.org/2/library/logging.html
 
 [cristian]: https://cristianrcv.netlify.com/
 
