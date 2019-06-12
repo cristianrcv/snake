@@ -57,6 +57,7 @@ COLOR_EMPTY = 1
 VALID_COLORS = [209, 47, 227, 22]
 
 MAX_SCORE_PER_FOOD = 100
+SCORE_PER_KILL = 50
 
 #
 # Logger definition
@@ -346,13 +347,16 @@ def move_snakes(win, colors_per_player, keys, players_alive, scores, snakes, foo
                 snakes[player_id] = []
                 players_alive[player_id] = False
             # Snake head touches another snake
-            other_snakes = snakes[:player_id] + snakes[player_id + 1:]
-            for other_snake in other_snakes:
-                if snake[0] in other_snake:
-                    clear_from_win(win, snakes[player_id])
-                    clear_from_win(win, [foods[player_id]])
-                    snakes[player_id] = []
-                    players_alive[player_id] = False
+            for other_player_id, other_snake in enumerate(snakes):
+                if other_player_id != player_id:
+                    if snake[0] in other_snake:
+                        # Increase the other player's score
+                        scores[other_player_id] = scores[other_player_id] + SCORE_PER_KILL
+                        # Kill current snake
+                        clear_from_win(win, snakes[player_id])
+                        clear_from_win(win, [foods[player_id]])
+                        snakes[player_id] = []
+                        players_alive[player_id] = False
     if True not in players_alive:
         return True, players_alive, scores, snakes, foods, food_times
 
